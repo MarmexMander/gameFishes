@@ -8,5 +8,7 @@ namespace Game
 {
     interface Fish
     {
+        int Size { get; }
+        int Count { get; set; }
     }
 }
