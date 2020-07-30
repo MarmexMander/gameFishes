@@ -10,5 +10,7 @@ namespace Game
     {
         int Size { get; }
         int Count { get; set; }
+        int MaxCount { get; }
+        void Die();
     }
 }
