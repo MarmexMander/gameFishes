@@ -31,7 +31,24 @@ namespace Game
         static List<Tile> tilemap = new List<Tile>();
         static Size tilemapSize;
 
+        void DrawFishes(IField field)
+        {
+            int i = 0, j = 0;
+            
+            foreach (List <IFish> fishes in field.Field)
+            {
+                foreach (IFish fish in fishes) 
+                {
+                    tilemap.Find(t => t.X == i && t.Y == j).setData(fish.Sprite, fish.Size.ToString());
+                    j++;
+                }
+                i++;
+                j = 0;
+            }
 
+
+
+        }
         void init(int spriteSize)
         {
             Random rand = new Random(DateTime.Now.Millisecond * DateTime.Now.Year * DateTime.Now.Day);
