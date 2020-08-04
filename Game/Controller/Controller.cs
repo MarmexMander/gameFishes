@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Drawing;
 
 
-
-namespace Game.Controller
+namespace Game
 {
     class Controller
     {
