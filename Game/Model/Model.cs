@@ -18,7 +18,7 @@ namespace Game
             public Image Sprite { get; private set; }
             SmallFish()
             {
-                this.Sprite.Source = Controller.BitmapToImageSource(Properties.Resources.SmallFish);
+                this.Sprite.Source = Controller.BitmapToImageSource(Properties.Resources.SmallFish1);
                 Size = 1;
                 MaxCount = 2;
                 Count = 0;
@@ -57,7 +57,7 @@ namespace Game
             public Image Sprite { get; private set; }
             MiddleFish()
             {
-                this.Sprite.Source = Controller.BitmapToImageSource(Properties.Resources.MiddleFish);
+                this.Sprite.Source = Controller.BitmapToImageSource(Properties.Resources.MiddleFish1);
                 Size = 2;
                 MaxCount = 2;
                 Count = 0;
@@ -96,7 +96,7 @@ namespace Game
             public Image Sprite { get; private set; }
             BigFish()
             {
-                this.Sprite.Source = Controller.BitmapToImageSource(Properties.Resources.BigFish);
+                this.Sprite.Source = Controller.BitmapToImageSource(Properties.Resources.BigFish1);
                 Size = 3;
                 MaxCount = 2;
                 Count = 0;
