@@ -6,10 +6,7 @@
         xmlns:local="clr-namespace:Game"
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="900">
-    <Canvas x:Name="canvas">
-        <Canvas.Background>
-            <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/123.jpg"/>
-        </Canvas.Background>
+    <Canvas x:Name="canvas">        
 
     </Canvas>
 </Window>

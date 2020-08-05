@@ -21,6 +21,7 @@ namespace Game
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -51,6 +52,8 @@ namespace Game
         }
         void init(int spriteSize)
         {
+            canvas.Background = new ImageBrush(Controller.BitmapToImageSource(Properties.Resources.fon1));
+
             Random rand = new Random(DateTime.Now.Millisecond * DateTime.Now.Year * DateTime.Now.Day);
 
             tilemapSize.Width = 8;

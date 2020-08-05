@@ -24,6 +24,7 @@ namespace Game
 
             return image;
         }
+
         public static void restart()
         {
             Field = new Model.Fild();
