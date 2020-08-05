@@ -11,7 +11,7 @@ namespace Game
 {
     class Controller
     {
-        IField Field;
+        public static IField Field;
         static public System.Windows.Media.ImageSource BitmapToImageSource(Bitmap value)
         {
             MemoryStream ms = new MemoryStream();
@@ -26,7 +26,8 @@ namespace Game
         }
         public static void restart()
         {
-            
+            Field = new Model.Fild();
+            ((Model.Fild)Field).pushBackColumn(1, new Model.SmallFish());
         }
     }
 }

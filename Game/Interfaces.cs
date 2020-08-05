@@ -19,7 +19,7 @@ namespace Game
 
         void Notify();
     }
-    interface IFish : IObservable
+    public interface IFish : IObservable
     {
         int Size { get; }
         int Count { get; set; }
@@ -27,11 +27,10 @@ namespace Game
         void Die();
         Image Sprite { get; }
     }
-     interface IField : IObserver
+     public interface IField : IObserver
     {
         IFish pullColumn(int column);
         void pudhColumn(int column, IFish fish);
         List<List<IFish>> Field { get; }
-
     }
 }
