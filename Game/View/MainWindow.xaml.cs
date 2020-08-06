@@ -77,6 +77,7 @@ namespace Game
                     buff.Click += tile_Click;
                     buff.Background = new System.Windows.Media.SolidColorBrush(Color.FromRgb(255, 255, 255));
                     buff.Background.Opacity = 100;
+                    //buff.Background.Transform.
                     tilemapForm[i, j] = buff;
                     Tile buffTile = new Tile(i, j);
                     tilemap.Add(buffTile);

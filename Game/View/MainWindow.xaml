@@ -7,7 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="900">
     <Canvas x:Name="canvas">
-        
+        <Label x:Name="label" Content="Score:" Canvas.Left="598" Canvas.Top="75" FontWeight="Bold" FontSize="46" FontFamily="Montserrat"/>
+        <Label x:Name="label1" Content="0" Canvas.Left="805" Canvas.Top="75" FontWeight="Bold" FontSize="46" FontFamily="Montserrat"/>
+        <Button x:Name="button" Content="Restart" Width="248" Canvas.Left="598" Canvas.Top="146" Height="68" FontWeight="Bold" FontFamily="Montserrat" FontSize="42" Foreground="White">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF0D9FBF" Offset="0"/>
+                    <GradientStop Color="#FF17CAF1" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
 
     </Canvas>
 </Window>
