@@ -26,6 +26,7 @@ namespace Game
         {
             InitializeComponent();
             init(70);
+
         }
 
         static Button[,] tilemapForm;

@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace Game
 {
-   public class Model
+    public class Model
     {
         public class SmallFish : IFish
         {
@@ -15,7 +15,7 @@ namespace Game
             public int Size { get; private set; }
             public int MaxCount { get; private set; }
             public int Count { get; set; }
-            public Image Sprite { get; private set; } 
+            public Image Sprite { get; private set; }
             public SmallFish()
             {
                 Sprite = new Image();
@@ -135,16 +135,16 @@ namespace Game
             public Fild(int x, int y)
             {
                 Field = new List<List<IFish>>();
-                for(int i = 0; i < x; i++)
+                for (int i = 0; i < x; i++)
                 {
                     Field.Add(new List<IFish>());
-                    for(int j = 0; j < y; j++)
+                    for (int j = 0; j < y; j++)
                     {
                         Field[i].Add(null);
                     }
                 }
             }
- 
+
             public IFish pullColumn(int collumn)
             {
                 IFish fish = Field[collumn].Last();
@@ -153,8 +153,8 @@ namespace Game
             }
 
             public void pushBackColumn(int collumn, IFish fish)
-            {                
-                Field[collumn].Insert(0,fish);
+            {
+                Field[collumn].Insert(0, fish);
                 if (Field[collumn].Last() != null)
                     Controller.GameOver();
                 Field[collumn].Remove(Field[collumn].Last());
@@ -162,14 +162,42 @@ namespace Game
 
             public void pudhColumn(int collumn, IFish fish)
             {
-                Field[collumn].Add(fish); 
+                Field[collumn].Add(fish);
             }
 
-            
+
 
             public void Update(IObservable subject)
             {
 
+            }
+
+            public void Row_Add()
+            {
+                Random rnd = new Random(DateTime.Now.Millisecond);
+                
+                for (int i = 0; i < Field.Count; i++)
+                {
+                    if (rnd.Next(1, 3) != 3)
+                    {
+                        switch (rnd.Next(1, 3))
+                        {
+                            case 1:
+                                this.pushBackColumn(i, new SmallFish());
+                                break;
+
+                            case 2:
+                                this.pushBackColumn(i, new MiddleFish());
+                                break;
+
+                            case 3:
+                                this.pushBackColumn(i, new BigFish());
+                                break;
+                        }
+
+
+                    }
+                }
             }
         }
     }

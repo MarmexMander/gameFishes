@@ -35,5 +35,7 @@ namespace Game
             ((Model.Fild)Field).pushBackColumn(1, new Model.SmallFish());
             window.DrawFishes(Field);
         }
+
+        
     }
 }
