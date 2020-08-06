@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Drawing;
-
+using System.Windows.Threading;
 
 namespace Game
 {
@@ -13,6 +13,7 @@ namespace Game
     {
         public static IField Field;
         public static MainWindow window;
+        public static DispatcherTimer ticker;
         static public System.Windows.Media.ImageSource BitmapToImageSource(Bitmap value)
         {
             MemoryStream ms = new MemoryStream();
@@ -31,14 +32,21 @@ namespace Game
         }
         public static void restart()
         {
+            ticker = new DispatcherTimer();
+            ticker.Interval = new TimeSpan(0,0,0,0,500);
+            ticker.Tick += Ticker_tick;
             Field = new Model.Fild((int)MainWindow.TilemapSize.Width,(int)MainWindow.TilemapSize.Height);
             ((Model.Fild)Field).pushBackColumn(1, new Model.SmallFish());
             window.DrawFishes(Field);
             ((Model.Fild)Field).Row_Add();
             ((Model.Fild)Field).Row_Add();
             ((Model.Fild)Field).Row_Add();
+            ticker.Start();
         }
 
-        
+        private static void Ticker_tick(object sender, EventArgs e)
+        {
+            window.DrawFishes(Field);
+        }
     }
 }
