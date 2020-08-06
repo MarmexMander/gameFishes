@@ -25,7 +25,10 @@ namespace Game
 
             return image;
         }
+        public static void GameOver()
+        {
 
+        }
         public static void restart()
         {
             Field = new Model.Fild((int)MainWindow.TilemapSize.Width,(int)MainWindow.TilemapSize.Height);

@@ -154,7 +154,10 @@ namespace Game
 
             public void pushBackColumn(int collumn, IFish fish)
             {                
-                Field[collumn].Prepend(fish);               
+                Field[collumn].Insert(0,fish);
+                if (Field[collumn].Last() != null)
+                    Controller.GameOver();
+                Field[collumn].Remove(Field[collumn].Last());
             }
 
             public void pudhColumn(int collumn, IFish fish)
