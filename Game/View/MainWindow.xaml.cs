@@ -31,8 +31,9 @@ namespace Game
         static Button[,] tilemapForm;
         static List<Tile> tilemap = new List<Tile>();
         static Size tilemapSize;
+        public static Size TilemapSize { get { return tilemapSize; } }
 
-        void DrawFishes(IField field)
+        public void DrawFishes(IField field)
         {
             int i = 0, j = 0;
             
@@ -40,6 +41,9 @@ namespace Game
             {
                 foreach (IFish fish in fishes) 
                 {
+                    if (fish == null)
+                        tilemap.Find(t => t.X == i && t.Y == j).setData(null,"null");
+                    else
                     tilemap.Find(t => t.X == i && t.Y == j).setData(fish.Sprite, fish.Size.ToString());
                     j++;
                 }
@@ -52,16 +56,17 @@ namespace Game
         }
         void init(int spriteSize)
         {
+            Controller.window = this;
             canvas.Background = new ImageBrush(Controller.BitmapToImageSource(Properties.Resources.fon1));
 
             Random rand = new Random(DateTime.Now.Millisecond * DateTime.Now.Year * DateTime.Now.Day);
 
             tilemapSize.Width = 8;
             tilemapSize.Height = 6;
-            tilemapForm = new Button[(int)tilemapSize.Width, (int)tilemapSize.Height];
-            for (int i = 0; i < (tilemapSize.Width); i++)
+            tilemapForm = new Button[(int)TilemapSize.Width, (int)TilemapSize.Height];
+            for (int i = 0; i < (TilemapSize.Width); i++)
             {
-                for (int j = 0; j < (tilemapSize.Height); j++)
+                for (int j = 0; j < (TilemapSize.Height); j++)
                 {
                     Button buff = new Button();
                     buff.Width = spriteSize;
@@ -80,7 +85,7 @@ namespace Game
                 }
             }
             //this.MaximumSize = Size;
-            //restart();
+            Controller.restart();
         }
 
         private void tile_Click(object sender, RoutedEventArgs e)
@@ -90,9 +95,9 @@ namespace Game
 
         static void redraw()
         {
-            for (int i = 0; i < (tilemapSize.Width); i++)
+            for (int i = 0; i < (TilemapSize.Width); i++)
             {
-                for (int j = 0; j < (tilemapSize.Height); j++)
+                for (int j = 0; j < (TilemapSize.Height); j++)
                 {
                     tilemapForm[i, j].Background = new ImageBrush(tilemap.Find(t => t.X == i && t.Y == j).Sprite.Source);
                     //Refresh();
@@ -104,7 +109,8 @@ namespace Game
             try
             {
                 if (sprite == null)
-                    tilemapForm[x, y].Background = new System.Windows.Media.SolidColorBrush(Color.FromRgb(255, 255, 255));
+                    tilemapForm[x, y].Background = new System.Windows.Media.SolidColorBrush(Color.FromArgb(0,255, 255, 255));
+                else
                 tilemapForm[x, y].Background = new ImageBrush(sprite.Source);
             }
             catch { }
