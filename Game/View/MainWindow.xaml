@@ -7,17 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="900">
     <Canvas x:Name="canvas">
-        <Label x:Name="Score" Content="0" Canvas.Left="798" Canvas.Top="56" FontSize="42" FontWeight="Bold" FontFamily="Montserrat" RenderTransformOrigin="0.41,0.484" Foreground="Black"/>
-        <Label x:Name="ScoreLabelStat" Content="Score:" Canvas.Left="601" Canvas.Top="56" FontSize="42" FontFamily="Montserrat" FontWeight="Bold" Background="{x:Null}" Foreground="Black"/>
-        <Button x:Name="RestartGame" Content="Restart" Canvas.Left="601" Canvas.Top="142" Width="236" Height="60" FontFamily="Montserrat" FontWeight="Bold" FontSize="36" FontStyle="Italic" Foreground="White" Click="RestartGame_Click">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                    <GradientStop Color="#FF093D40" Offset="1"/>
-                    <GradientStop Color="#FF0097FF"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-
+        
 
     </Canvas>
 </Window>
