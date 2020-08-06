@@ -15,9 +15,10 @@ namespace Game
             public int Size { get; private set; }
             public int MaxCount { get; private set; }
             public int Count { get; set; }
-            public Image Sprite { get; private set; }
+            public Image Sprite { get; private set; } 
             public SmallFish()
             {
+                Sprite = new Image();
                 this.Sprite.Source = Controller.BitmapToImageSource(Properties.Resources.SmallFish1);
                 Size = 1;
                 MaxCount = 2;
@@ -57,6 +58,7 @@ namespace Game
             public Image Sprite { get; private set; }
             public MiddleFish()
             {
+                Sprite = new Image();
                 this.Sprite.Source = Controller.BitmapToImageSource(Properties.Resources.MiddleFish1);
                 Size = 2;
                 MaxCount = 2;
@@ -96,6 +98,7 @@ namespace Game
             public Image Sprite { get; private set; }
             public BigFish()
             {
+                Sprite = new Image();
                 this.Sprite.Source = Controller.BitmapToImageSource(Properties.Resources.BigFish1);
                 Size = 3;
                 MaxCount = 2;
@@ -128,8 +131,20 @@ namespace Game
 
         public class Fild : IField
         {
-            
-
+            public List<List<IFish>> Field { get; private set; }
+            public Fild(int x, int y)
+            {
+                Field = new List<List<IFish>>();
+                for(int i = 0; i < x; i++)
+                {
+                    Field.Add(new List<IFish>());
+                    for(int j = 0; j < y; j++)
+                    {
+                        Field[i].Add(null);
+                    }
+                }
+            }
+ 
             public IFish pullColumn(int collumn)
             {
                 IFish fish = Field[collumn].Last();
@@ -147,7 +162,7 @@ namespace Game
                 Field[collumn].Add(fish); 
             }
 
-            public List<List<IFish>> Field { get; private set; }
+            
 
             public void Update(IObservable subject)
             {
