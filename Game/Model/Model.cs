@@ -9,6 +9,8 @@ namespace Game
 {
     public class Model
     {
+        
+
         public class SmallFish : IFish
         {
             private List<IObserver> _observers = new List<IObserver>();
@@ -165,8 +167,6 @@ namespace Game
                 Field[collumn].Add(fish);
             }
 
-
-
             public void Update(IObservable subject)
             {
 
@@ -174,13 +174,14 @@ namespace Game
 
             public void Row_Add()
             {
+
                 Random rnd = new Random(DateTime.Now.Millisecond);
                 
                 for (int i = 0; i < Field.Count; i++)
                 {
-                    if (rnd.Next(1, 3) != 3)
+                    if (rnd.Next(0, 4) != 3)
                     {
-                        switch (rnd.Next(1, 3))
+                        switch (rnd.Next(0, 4))
                         {
                             case 1:
                                 this.pushBackColumn(i, new SmallFish());
@@ -194,8 +195,6 @@ namespace Game
                                 this.pushBackColumn(i, new BigFish());
                                 break;
                         }
-
-
                     }
                 }
             }
