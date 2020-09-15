@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,7 +29,7 @@ namespace Game
             init(70);
 
         }
-
+        public Model.Fild Field = null;
         static Button[,] tilemapForm;
         static List<Tile> tilemap = new List<Tile>();
         static Size tilemapSize;
@@ -183,6 +184,11 @@ namespace Game
         private void RestartGame_Click(object sender, RoutedEventArgs e)
         {
             init(70);
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            File.WriteAllText("LastField.json", Field.SerializeFieldToJSON());
         }
     }
 }

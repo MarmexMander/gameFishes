@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Text.Json.Serialization;
 
 namespace Game
 {
@@ -25,12 +26,15 @@ namespace Game
         int Count { get; set; }
         int MaxCount { get; }
         void Die();
+        [JsonIgnore]
         Image Sprite { get; }
+        string SerializeToJSON();
     }
      public interface IField : IObserver
     {
         IFish pullColumn(int column);
         void pudhColumn(int column, IFish fish);
         List<List<IFish>> Field { get; }
+        string SerializeFieldToJSON();
     }
 }

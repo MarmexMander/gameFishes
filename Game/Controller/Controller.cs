@@ -37,6 +37,7 @@ namespace Game
             ticker.Tick += Ticker_tick;
             Field = new Model.Fild((int)MainWindow.TilemapSize.Width,(int)MainWindow.TilemapSize.Height);
             ((Model.Fild)Field).pushBackColumn(1, new Model.SmallFish());
+            window.Field = Field as Model.Fild;
             window.DrawFishes(Field);
             ((Model.Fild)Field).Row_Add();
             ((Model.Fild)Field).Row_Add();
@@ -50,3 +51,4 @@ namespace Game
         }
     }
 }
+    

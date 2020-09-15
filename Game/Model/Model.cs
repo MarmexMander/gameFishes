@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
@@ -49,6 +50,10 @@ namespace Game
                     observer.Update(this);
                 }
             }
+            public string SerializeToJSON()
+            {
+                return System.Text.Json.JsonSerializer.Serialize(this);
+            }
         }
 
         public class MiddleFish : IFish
@@ -89,6 +94,10 @@ namespace Game
                     observer.Update(this);
                 }
             }
+            public string SerializeToJSON()
+            {
+                return System.Text.Json.JsonSerializer.Serialize(this);
+            }
         }
 
         public class BigFish : IFish
@@ -128,6 +137,10 @@ namespace Game
                 {
                     observer.Update(this);
                 }
+            }
+            public string SerializeToJSON()
+            {
+                return System.Text.Json.JsonSerializer.Serialize(this);
             }
         }
 
@@ -197,6 +210,10 @@ namespace Game
                         }
                     }
                 }
+            }
+            public string SerializeFieldToJSON()
+            {
+                return JsonSerializer.Serialize(Field);
             }
         }
     }
